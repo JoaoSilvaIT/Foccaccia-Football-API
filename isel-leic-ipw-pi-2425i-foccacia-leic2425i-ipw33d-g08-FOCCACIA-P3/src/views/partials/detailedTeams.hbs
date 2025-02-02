@@ -1,0 +1,58 @@
+{{! Purpose: Display a list of leagues }}
+<section class='container p-2'>
+  <h2> List of Teams: </h2>
+
+  <!-- Show a league in each row of a table -->
+  <table class='table text-nowrap'>
+    <tr>
+      <th> Name </th>
+      <th> Logo </th>
+      <th> Stadium </th>
+      <th> Leagues </th>
+      <th> Seasons </th>
+      <th> Actions </th>
+    </tr>
+    {{#each teams}}
+      {{#each leagues}}
+        <form
+          action='/site/groups/{{../../groupId}}/addTeam'
+          method='POST'
+          id='addTeamForm{{../id}}{{id}}'
+        >
+          <tr>
+          <td> {{../name}} </td>
+          <td>
+            <img
+              class='img-fluid'
+              src='{{../logo}}'
+              alt='{{../name}} Logo'
+            />
+          </td>
+          <td> {{../venue}} </td>
+          <td> {{this.name}} </td>
+          <td>
+            <select name='season' id='season' class='form-control'>
+              {{#each seasons}}
+                <option value='{{this.year}}'>{{this.year}}</option>
+              {{/each}}
+            </select>
+          </td>
+
+          <input type="hidden" name="teamId" value="{{../id}}">
+          <input type="hidden" name="leagueId" value="{{id}}">
+
+          <td>
+            <button
+              type='submit'
+              class='btn btn-primary'
+              style='padding: 6px 20px; border-radius: 5px; background-color: rgb(255, 0, 0); color: white; border-color: rgb(255, 0, 0);'
+            >
+              Add team to Group
+            </button>
+          </td>
+        </form>
+      </tr>
+      {{/each}}
+    {{/each}}
+  </table>
+</section>

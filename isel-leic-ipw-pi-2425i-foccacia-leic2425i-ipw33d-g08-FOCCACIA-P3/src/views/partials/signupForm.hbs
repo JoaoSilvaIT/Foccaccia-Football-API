@@ -1,0 +1,35 @@
+<div
+  class='d-flex justify-content-center align-items-center'
+  style='height: 67vh;'
+>
+  <div class='card p-4 align-items-center'>
+    <h2>Register</h2>
+    <p>Please fill in this form to create an account.</p>
+    <form id='formSignup' action='./signup' method='POST'>
+      <div class='mb-3'>
+        <label for='username' class='small-label'>Username</label>
+        <input
+          id='username'
+          name='username'
+          type='text'
+          class='form-control'
+          autocomplete='username'
+          required
+        />
+      </div>
+
+      <button
+        type='submit'
+        class='btn btn-secondary signup-btn'
+        style='background-color: rgb(0, 0, 0); border-color: #000000;'
+      >Sign up!</button>
+    </form>
+  </div>
+</div>
+<!-- Estilos locais para este arquivo -->
+<style>
+  .form-control { width: 189px; /* Tamanho fixo para o campo de entrada */
+  padding: 8px; /* Ajuste o padding para diminuir a altura */ } /* Ajusta o
+  botão para ter o mesmo tamanho do input */ .signup-btn { width: 189px; /*
+  Mesmo tamanho que o input */ padding: 8px; /* Mesmo padding que o input */ }
+</style>

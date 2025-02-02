@@ -1,0 +1,27 @@
+<section class='container p-2'>
+  <h2>List of Groups:</h2>
+
+  <!-- Show a task in each row of a table -->
+  <table class='table text-nowrap'>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    {{#each groups}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.description}}</td>
+        <td>
+          <a
+            href='/site/groups/{{this.id}}'
+            class='btn btn-primary'
+            style='background-color: black; color: white; border-color: black;'
+          >
+            Edit Group
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+</section>

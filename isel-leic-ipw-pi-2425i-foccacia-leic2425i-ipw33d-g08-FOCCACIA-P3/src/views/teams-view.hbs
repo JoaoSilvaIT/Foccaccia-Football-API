@@ -1,0 +1,18 @@
+<section class="p-2">
+
+  {{> header}}
+
+  {{> searchForm query="name"}}
+
+  {{#if teams}}
+    {{#if teams.length}} 
+      {{> teams}}
+    {{else if teams.length}}
+      <p>No teams found</p>
+    {{/if}}
+  {{else}}
+<p style="text-align: center;">Please make a search first</p>  
+{{/if}}
+  {{> footer}}
+  
+</section>

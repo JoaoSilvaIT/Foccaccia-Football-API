@@ -1,0 +1,30 @@
+<section
+  class='d-flex justify-content-center align-items-center'
+  style='height: 67vh;'
+>
+  <div class='card p-4' style='background-color: #ffffff;'>
+    <h2 class='text-center' style='color: #000000;'>Log in</h2>
+    <form id='formSignup' action='./login' method='POST'>
+      <div class='mb-3'>
+        <label
+          for='username'
+          class='form-label'
+          style='color: rgb(0, 0, 0);'
+        >Username</label>
+        <input
+          id='username'
+          name='username'
+          type='text'
+          class='form-control'
+          autocomplete='username'
+          required
+        />
+      </div>
+      <button
+        type='submit'
+        class='btn btn-primary w-100'
+        style='background-color: rgb(0, 0, 0); border-color: #000000;'
+      >Log in</button>
+    </form>
+  </div>
+</section>

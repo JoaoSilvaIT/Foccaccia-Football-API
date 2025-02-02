@@ -1,0 +1,13 @@
+<section class="container p-2 bg-light shadow">
+  <h2>Update Group:</h2>
+  <form id="formUpdateGroup" action="/site/groups/update" method="POST">
+    <input type="hidden" name="groupId" value="{{group.id}}" />
+    {{> groupContentForm}}
+  </form>
+  <div class="container p-1">
+    <button id="btn-update-group" class="btn btn-primary d-inline-block" type="submit" form="formUpdateGroup" aria-label="Submit update group form" style="background-color: black; color: white; border-color: black;">
+      Update
+    </button>
+    {{> deleteGroupForm}}
+  </div>
+</section>

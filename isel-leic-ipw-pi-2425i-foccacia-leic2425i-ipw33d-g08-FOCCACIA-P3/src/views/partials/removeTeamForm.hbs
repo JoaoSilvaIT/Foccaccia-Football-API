@@ -1,0 +1,15 @@
+{{log this}}
+
+<form action='/site/groups/removeTeam' method='POST'>
+
+  <input type='hidden' name='groupTeamId' value='{{id}}' />
+  <input type='hidden' name='groupId' value='{{groupId}}' />
+
+  <button
+    type='submit'
+    class='btn btn-danger'
+    style='padding: 6px 20px; border-radius: 5px; background-color: rgb(255, 0, 0); color: white; border-color: rgb(255, 0, 0);'
+  >
+    Remove team from Group
+  </button>
+</form>

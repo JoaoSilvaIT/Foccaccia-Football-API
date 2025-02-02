@@ -1,0 +1,43 @@
+<form
+  action='/site/groups/addTeam'
+  method='POST'
+  id='addTeamForm'
+  class='form-container'
+>
+  <h1>Add Team to Group</h1>
+
+  <div class='form-group'>
+    <label for='group'>Group</label>
+    <select name='groupId' id='group' class='form-control'>
+      {{#each groups}}
+        <option value='{{this.id}}'>{{this.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class='form-group'>
+    <label for='season'>Season</label>
+    <select name='season' id='season' class='form-control'>
+      {{#each seasons}}
+        <option value='{{this.year}}'>{{this.year}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <input type='hidden' name='teamId' value='{{teamId}}' />
+  <input type='hidden' name='leagueId' value='{{leagueId}}' />
+
+  <button
+    type='submit'
+    class='btn btn-primary'
+    style='background-color: black; color: white; border-color: black;'
+  >Add Team</button>
+</form>
+
+<style>
+  .form-container { max-width: 500px; margin: 0 auto; padding: 20px; border: 1px
+  solid #ccc; border-radius: 10px; background-color: #f9f9f9; } .form-group {
+  margin-bottom: 20px; } .form-group label { display: block; margin-bottom: 5px;
+  } .form-control { width: 100%; border: 1px solid #ccc; border-radius: 5px; }
+  .btn { width: 100%; padding: 10px; border-radius: 5px; }
+</style>

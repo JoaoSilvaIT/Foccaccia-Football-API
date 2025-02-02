@@ -1,0 +1,48 @@
+{{! Purpose: Display a list of teams }}
+<section class='container p-2'>
+  <h2>List of Teams:</h2>
+
+  <!-- Show a team in each row of a table -->
+  <table class='table text-nowrap'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Country</th>
+        <th>Founded</th>
+        <th>National</th>
+        <th>Logo</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each teams}}
+        <tr>
+          <td>{{this.team.name}}</td>
+          <td>{{this.team.id}}</td>
+          <td>{{this.team.code}}</td>
+          <td>{{this.team.country}}</td>
+          <td>{{this.team.founded}}</td>
+          <td>{{this.team.national}}</td>
+          <td>
+            <img
+              class='img-fluid'
+              src='{{this.team.logo}}'
+              alt='{{this.team.name}} Logo'
+            />
+          </td>
+          <td>
+            <a
+              href='/site/leagues?team={{this.team.id}}'
+              class='btn btn-primary'
+              style='background-color: black; color: white; border-color: black;'
+            >
+              View leagues
+            </a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,84 @@
+@prefix = http://localhost:2024/api
+
+@baseToken = c176eafd-25eb-45d3-a8cb-7218f3d63b3b
+
+### Get team by name
+
+GET {{prefix}}/teams?name=Benfica
+
+### Get league by team id
+
+GET {{prefix}}/leagues?team=211
+
+### Create user
+
+# @name tokenAPI
+POST {{prefix}}/users
+Content-Type: application/json
+
+{
+    "username": "pontes"
+}
+
+### Create a group
+
+@authToken = {{tokenAPI.response.body.userToken}}
+
+# @name groupAPI
+POST {{prefix}}/groups
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "name": "Benfica Fans",
+    "description": "Group for Benfica fans"
+}
+
+### Update a group
+
+@groupId = {{groupAPI.response.body.id}}
+
+PUT {{prefix}}/groups?groupId={{groupId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "name": "Sporting Fans",
+    "description": "Group for Sporting fans"
+}
+
+### Delete a group
+
+DELETE {{prefix}}/groups?groupId={{groupId}}
+Authorization: Bearer {{authToken}}
+
+### Get all groups
+
+GET {{prefix}}/groups
+Authorization: Bearer {{authToken}}
+
+### Get group info by id
+
+GET {{prefix}}/groups/{{groupId}}
+Authorization: Bearer {{authToken}}
+
+### Add team to group
+
+@teamId = 211
+@leagueId = 94
+@season = 2022
+
+POST {{prefix}}/groups/{{groupId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "teamId": {{teamId}},
+    "leagueId": {{leagueId}},
+    "season": {{season}}
+}
+
+### Remove team from group
+
+DELETE {{prefix}}/groups/{{groupId}}?teamId={{teamId}}&leagueId={{leagueId}}&season={{season}}
+Authorization: Bearer {{authToken}}

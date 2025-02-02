@@ -1,0 +1,36 @@
+{{! Purpose: Display a list of teams }}
+<section class='container p-2'>
+  <!-- Show a team in each row of a table -->
+  <table class='table text-nowrap'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Venue</th>
+        <th>League</th>
+        <th>Season</th>
+        <th>
+          <a
+            href='{{group.id}}/addTeam'
+            class='btn btn-primary'
+            style='background-color: black; color: white; border-color: black;'
+          >
+            Add team
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each group.teams}}
+        <tr>
+          <td>{{this.team}}</td>
+          <td>{{this.venue}}</td>
+          <td>{{this.league}}</td>
+          <td>{{this.season}}</td>
+          <td>
+            {{> removeTeamForm groupId=../group.id}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>
